@@ -1,0 +1,139 @@
+2026-07-11 22:34:56 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:35:03 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:35:45 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:35:45 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:35:45 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:35:45 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:35:45 [bot.main] INFO: ==================================================
+2026-07-11 22:35:45 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:35:45 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:35:45 [bot.main] INFO: ==================================================
+2026-07-11 22:36:00 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:36:00 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:36:00 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:36:00 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:36:00 [bot.main] INFO: ==================================================
+2026-07-11 22:36:00 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:36:00 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:36:00 [bot.main] INFO: ==================================================
+2026-07-11 22:36:02 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 22:36:02 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 22:36:02 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 22:36:02 [apscheduler.scheduler] INFO: Removed job 5fca7e8397584b44ace797c8ef6661c8
+2026-07-11 22:36:02 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:06:00 UTC], next run at: 2026-07-11 17:06:00 UTC)" was missed by 0:00:01.789794
+2026-07-11 22:36:59 [bot.services.cam_service] INFO: Camera server started on 0.0.0.0:5000
+2026-07-11 22:39:14 [bot.services.cam_service] INFO: Camera server stopped. Stats: {'total_captures': 0, 'uptime': '2m 15s'}
+2026-07-11 22:41:00 [apscheduler.scheduler] INFO: Removed job 91298be1b9f44b5097f34b6bd8e348e8
+2026-07-11 22:41:00 [apscheduler.executors.default] INFO: Running job "cleanup_tunnels (trigger: date[2026-07-11 17:11:00 UTC], next run at: 2026-07-11 17:11:00 UTC)" (scheduled at 2026-07-11 17:11:00.772339+00:00)
+2026-07-11 22:41:00 [bot.main] INFO: Cleaning up tunnel services...
+2026-07-11 22:41:00 [apscheduler.executors.default] INFO: Job "cleanup_tunnels (trigger: date[2026-07-11 17:11:00 UTC], next run at: 2026-07-11 17:11:00 UTC)" executed successfully
+2026-07-11 22:42:33 [apscheduler.scheduler] INFO: Scheduler has been shut down
+2026-07-11 22:45:20 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:45:20 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:45:20 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:45:20 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:45:20 [bot.main] INFO: ==================================================
+2026-07-11 22:45:20 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:45:20 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:45:20 [bot.main] INFO: ==================================================
+2026-07-11 22:45:22 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 22:45:22 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 22:45:22 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 22:45:22 [apscheduler.scheduler] INFO: Removed job 2cc1d1e7470a4bfba5499c4383c6fcdc
+2026-07-11 22:45:22 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:15:20 UTC], next run at: 2026-07-11 17:15:20 UTC)" was missed by 0:00:02.093133
+2026-07-11 22:45:24 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:45:24 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:45:24 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:45:24 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:45:24 [bot.main] INFO: ==================================================
+2026-07-11 22:45:24 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:45:24 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:45:24 [bot.main] INFO: ==================================================
+2026-07-11 22:45:28 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 22:45:28 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 22:45:28 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 22:45:28 [apscheduler.scheduler] INFO: Removed job d837b2ef4f4f482a8d5ce40feb5ee56e
+2026-07-11 22:45:28 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:15:24 UTC], next run at: 2026-07-11 17:15:24 UTC)" was missed by 0:00:04.082311
+2026-07-11 22:46:03 [bot.services.tunnel_service] ERROR: cloudflared binary not found. Please install Cloudflare Tunnel.
+2026-07-11 22:46:03 [bot.handlers.cam_handler] ERROR: Error launching Cloudflare Tunnel: cloudflared binary not found. Please install Cloudflare Tunnel.
+2026-07-11 22:50:24 [apscheduler.scheduler] INFO: Removed job 4652ab662f784b3189d8e71940490a33
+2026-07-11 22:50:24 [apscheduler.executors.default] INFO: Running job "cleanup_tunnels (trigger: date[2026-07-11 17:20:24 UTC], next run at: 2026-07-11 17:20:24 UTC)" (scheduled at 2026-07-11 17:20:24.591893+00:00)
+2026-07-11 22:50:24 [bot.main] INFO: Cleaning up tunnel services...
+2026-07-11 22:50:24 [apscheduler.executors.default] INFO: Job "cleanup_tunnels (trigger: date[2026-07-11 17:20:24 UTC], next run at: 2026-07-11 17:20:24 UTC)" executed successfully
+2026-07-11 22:56:49 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:56:50 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:56:50 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 22:56:50 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:56:50 [bot.main] INFO: ==================================================
+2026-07-11 22:56:50 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:56:50 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:56:50 [bot.main] INFO: ==================================================
+2026-07-11 22:56:52 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 22:56:52 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 22:56:52 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 22:56:52 [apscheduler.scheduler] INFO: Removed job 934f5e689bd94579a930ef6b733d520e
+2026-07-11 22:56:52 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:26:50 UTC], next run at: 2026-07-11 17:26:50 UTC)" was missed by 0:00:01.817097
+2026-07-11 22:58:34 [bot.services.tunnel_service] ERROR: cloudflared binary not found. Please install Cloudflare Tunnel.
+2026-07-11 22:58:34 [bot.handlers.cam_handler] ERROR: Error launching Cloudflare Tunnel: cloudflared binary not found. Please install Cloudflare Tunnel.
+2026-07-11 23:01:35 [apscheduler.scheduler] INFO: Scheduler has been shut down
+2026-07-11 23:04:55 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 23:04:55 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:04:55 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:04:55 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 23:04:55 [bot.main] INFO: ==================================================
+2026-07-11 23:04:55 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 23:04:55 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 23:04:55 [bot.main] INFO: ==================================================
+2026-07-11 23:04:57 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 23:04:57 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 23:04:57 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 23:04:57 [apscheduler.scheduler] INFO: Removed job 96f6a83f546941368037f3d150afcf68
+2026-07-11 23:04:57 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:34:55 UTC], next run at: 2026-07-11 17:34:55 UTC)" was missed by 0:00:01.536255
+2026-07-11 23:05:02 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 23:05:03 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:05:03 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:05:03 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 23:05:03 [bot.main] INFO: ==================================================
+2026-07-11 23:05:03 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 23:05:03 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 23:05:03 [bot.main] INFO: ==================================================
+2026-07-11 23:05:30 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 23:05:30 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 23:05:30 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 23:05:30 [apscheduler.scheduler] INFO: Removed job 51378f8861be4857a7dec0e2ae7b467c
+2026-07-11 23:05:30 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:35:03 UTC], next run at: 2026-07-11 17:35:03 UTC)" was missed by 0:00:27.272160
+2026-07-11 23:06:40 [bot.handlers.cam_handler] ERROR: Timeout waiting for Cloudflare Tunnel URL
+2026-07-11 23:07:54 [bot.handlers.cam_handler] ERROR: Timeout waiting for Cloudflare Tunnel URL
+2026-07-11 23:09:55 [apscheduler.scheduler] INFO: Removed job cd45ae476ef2492092f2218e811d7715
+2026-07-11 23:09:55 [apscheduler.executors.default] INFO: Running job "cleanup_tunnels (trigger: date[2026-07-11 17:39:55 UTC], next run at: 2026-07-11 17:39:55 UTC)" (scheduled at 2026-07-11 17:39:55.673956+00:00)
+2026-07-11 23:09:55 [bot.main] INFO: Cleaning up tunnel services...
+2026-07-11 23:09:55 [apscheduler.executors.default] INFO: Job "cleanup_tunnels (trigger: date[2026-07-11 17:39:55 UTC], next run at: 2026-07-11 17:39:55 UTC)" executed successfully
+2026-07-11 23:12:31 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 23:12:32 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:12:32 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:12:32 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 23:12:32 [bot.main] INFO: ==================================================
+2026-07-11 23:12:32 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 23:12:32 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 23:12:32 [bot.main] INFO: ==================================================
+2026-07-11 23:12:34 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 23:12:34 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 23:12:34 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 23:12:34 [apscheduler.scheduler] INFO: Removed job 5bafa2aa22c2427cb025d964881216c9
+2026-07-11 23:12:34 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:42:32 UTC], next run at: 2026-07-11 17:42:32 UTC)" was missed by 0:00:02.056118
+2026-07-11 23:13:41 [bot.handlers.cam_handler] ERROR: Timeout waiting for Cloudflare Tunnel URL
+2026-07-11 23:18:10 [bot.main] WARNING: Network issue (transient): httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-07-11 23:20:57 [bot.handlers.cam_handler] ERROR: Timeout waiting for Cloudflare Tunnel URL
+2026-07-11 23:21:37 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 23:21:37 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:21:37 [apscheduler.scheduler] INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-07-11 23:21:37 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 23:21:37 [bot.main] INFO: ==================================================
+2026-07-11 23:21:37 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 23:21:37 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 23:21:37 [bot.main] INFO: ==================================================
+2026-07-11 23:21:44 [apscheduler.scheduler] INFO: Added job "initialize_tunnels" to job store "default"
+2026-07-11 23:21:44 [apscheduler.scheduler] INFO: Added job "cleanup_tunnels" to job store "default"
+2026-07-11 23:21:44 [apscheduler.scheduler] INFO: Scheduler started
+2026-07-11 23:21:44 [apscheduler.scheduler] INFO: Removed job 6200fb702a4b4b44a5d1da6219b6f866
+2026-07-11 23:21:44 [apscheduler.executors.default] WARNING: Run time of job "initialize_tunnels (trigger: date[2026-07-11 17:51:37 UTC], next run at: 2026-07-11 17:51:37 UTC)" was missed by 0:00:06.925876

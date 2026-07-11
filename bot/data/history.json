@@ -1,0 +1,24 @@
+{
+  "5833905710": [
+    {
+      "timestamp": "2026-07-11T20:52:32.859797",
+      "action": "start",
+      "details": "Main menu opened"
+    },
+    {
+      "timestamp": "2026-07-11T22:09:16.973455",
+      "action": "start",
+      "details": "Main menu opened"
+    },
+    {
+      "timestamp": "2026-07-11T22:36:59.067894",
+      "action": "cam_start",
+      "details": "mode=both, url=https://cloudflare tunnel \u2014url"
+    },
+    {
+      "timestamp": "2026-07-11T22:39:14.567795",
+      "action": "cam_stop",
+      "details": "captures=0"
+    }
+  ]
+}

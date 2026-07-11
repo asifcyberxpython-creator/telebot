@@ -1,0 +1,15 @@
+{
+  "5833905710": {
+    "user_id": 5833905710,
+    "created_at": "2026-07-11T20:52:32.862468",
+    "settings": {
+      "default_cam_mode": "front",
+      "default_redirect_time": 5,
+      "notifications": true
+    },
+    "state": {
+      "flow": "",
+      "step": ""
+    }
+  }
+}

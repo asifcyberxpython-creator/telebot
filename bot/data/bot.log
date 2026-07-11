@@ -1,0 +1,548 @@
+2026-07-11 20:47:18 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 20:47:18 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 20:47:18 [bot.main] INFO: ==================================================
+2026-07-11 20:47:18 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 20:47:18 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 20:47:18 [bot.main] INFO: ==================================================
+2026-07-11 20:47:28 [telegram.ext] ERROR: Network Retry Loop (Bootstrap Initialize Application): Timed out: Timed out. Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 136, in do_action
+    await action_cb()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_application.py", line 489, in initialize
+    await self.bot.initialize()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 324, in initialize
+    await super().initialize()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 865, in initialize
+    await self.get_me()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 2040, in get_me
+    return await super().get_me(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 1005, in get_me
+    result = await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-07-11 20:49:31 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 20:51:07 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 20:51:07 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 20:51:07 [bot.main] INFO: ==================================================
+2026-07-11 20:51:07 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 20:51:07 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 20:51:07 [bot.main] INFO: ==================================================
+2026-07-11 20:52:19 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 20:52:19 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 20:52:19 [bot.main] INFO: ==================================================
+2026-07-11 20:52:19 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 20:52:19 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 20:52:19 [bot.main] INFO: ==================================================
+2026-07-11 20:52:23 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:27 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:29 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:34 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:37 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:42 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:46 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:50 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:55 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:52:59 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:05 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:10 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:15 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:20 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:22 [bot.main] ERROR: Exception while handling update: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_application.py", line 1315, in process_update
+    await coroutine
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_handlers\basehandler.py", line 159, in handle_update
+    return await self.callback(update, context)
+  File "C:\Users\moham\ASIF\telegram\bot\middleware\auth.py", line 63, in wrapper
+    return await func(update, context, *args, **kwargs)
+  File "C:\Users\moham\ASIF\telegram\bot\handlers\cam_handler.py", line 83, in cam_mode_callback
+    await query.edit_message_text(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_callbackquery.py", line 269, in edit_message_text
+    return await self._get_message().edit_text(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_message.py", line 4473, in edit_text
+    return await self.get_bot().edit_message_text(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 1763, in edit_message_text
+    return await super().edit_message_text(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4465, in edit_message_text
+    return await self._send_message(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 638, in _send_message
+    result = await super()._send_message(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 828, in _send_message
+    result = await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.BadRequest: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2026-07-11 20:53:23 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:27 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 20:53:30 [bot.main] ERROR: Exception while handling update: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python310\lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-07-11 21:06:12 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 21:06:12 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 21:06:12 [bot.main] INFO: ==================================================
+2026-07-11 21:06:12 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 21:06:12 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 21:06:12 [bot.main] INFO: ==================================================
+2026-07-11 21:09:37 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 21:09:38 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 21:09:38 [bot.main] INFO: ==================================================
+2026-07-11 21:09:38 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 21:09:38 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 21:09:38 [bot.main] INFO: ==================================================
+2026-07-11 22:06:19 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:06:19 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:06:19 [bot.main] INFO: ==================================================
+2026-07-11 22:06:19 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:06:19 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:06:19 [bot.main] INFO: ==================================================
+2026-07-11 22:08:51 [bot.main] INFO: Building CyberAI Bot application...
+2026-07-11 22:08:52 [bot.main] INFO: CyberAI Bot application built successfully
+2026-07-11 22:08:52 [bot.main] INFO: ==================================================
+2026-07-11 22:08:52 [bot.main] INFO:   CyberAI Bot Starting...
+2026-07-11 22:08:52 [bot.main] INFO:   Bot: @telecyber_ai_bot
+2026-07-11 22:08:52 [bot.main] INFO: ==================================================
