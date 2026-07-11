@@ -228,11 +228,14 @@ def build_application() -> Application:
     app.add_error_handler(error_handler)
 
     # ── Job Queue Setup ──
-    # Initialize tunnels at startup
-    app.job_queue.run_once(initialize_tunnels, when=0)
+    if app.job_queue:
+        # Initialize tunnels at startup
+        app.job_queue.run_once(initialize_tunnels, when=0)
 
-    # Register shutdown handler for tunnel cleanup
-    app.job_queue.run_once(cleanup_tunnels, when=300)  # Fallback cleanup after 5 min
+        # Register shutdown handler for tunnel cleanup
+        app.job_queue.run_once(cleanup_tunnels, when=300)  # Fallback cleanup after 5 min
+    else:
+        logger.error("JobQueue is not initialized! Startup tunnel setup and cleanup fallback will be disabled.")
 
     logger.info("CyberAI Bot application built successfully")
     return app
