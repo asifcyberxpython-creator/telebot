@@ -241,7 +241,7 @@ def build_application() -> Application:
     return app
 
 
-PORT = int(os.environ.get("PORT", 5000))
+from bot.config import PORT
 
 
 def run():
