@@ -4,3 +4,4 @@ requests
 pyshorteners
 python-dotenv
 watchdog
+gunicorn
