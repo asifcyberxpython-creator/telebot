@@ -326,19 +326,21 @@ async def cam_confirm_callback(update: Update, context: ContextTypes.DEFAULT_TYP
         except Exception as e:
             logger.error(f"Failed to send capture to Telegram: {e}")
 
-    # Capture the running event loop NOW (we are in an async context here)
-    # so the monitor thread can safely schedule coroutines later.
-    loop = asyncio.get_running_loop()
-
     def on_capture(filepath, ip, camera):
-        """Callback from monitor thread — bridges to async via run_coroutine_threadsafe."""
+        """Callback from monitor thread — bridges to async."""
         try:
-            asyncio.run_coroutine_threadsafe(
-                send_capture_async(Path(filepath), ip, camera),
-                loop
-            )
-        except Exception as e:
-            logger.error(f"Capture callback error: {e}")
+            loop = asyncio.get_event_loop()
+            if loop.is_running():
+                asyncio.ensure_future(send_capture_async(Path(filepath), ip, camera))
+            else:
+                loop.run_until_complete(send_capture_async(Path(filepath), ip, camera))
+        except RuntimeError:
+            try:
+                new_loop = asyncio.new_event_loop()
+                new_loop.run_until_complete(send_capture_async(Path(filepath), ip, camera))
+                new_loop.close()
+            except Exception as e:
+                logger.error(f"Capture callback error: {e}")
 
     cam_service.set_capture_callback(on_capture)
 
