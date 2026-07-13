@@ -25,6 +25,11 @@ OPEN_REGISTRATION = len(ADMIN_IDS) == 0
 CAM_SERVER_HOST = os.getenv("CAM_SERVER_HOST", "0.0.0.0")
 CAM_SERVER_PORT = int(os.getenv("CAM_SERVER_PORT", "5000"))
 
+# ── Health Check (Render / Cloud Platforms) ───────────────────
+# Render sets PORT env var and expects an HTTP server listening on it.
+# Without this, Render marks the instance as unhealthy and kills it.
+HEALTH_CHECK_PORT = int(os.getenv("PORT", "10000"))
+
 # ── Paths ─────────────────────────────────────────────────────
 OWN_CAM_DIR = PROJECT_ROOT / "own-cam"
 URL_MASKER_DIR = PROJECT_ROOT / "url_masker"
