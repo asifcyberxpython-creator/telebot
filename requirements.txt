@@ -1,7 +1,6 @@
-python-telegram-bot[job-queue]>=20.0
+python-telegram-bot[job-queue,webhooks]>=20.0
 flask>=2.0
 requests
 pyshorteners
 python-dotenv
 watchdog
-gunicorn
