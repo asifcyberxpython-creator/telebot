@@ -6,8 +6,6 @@ Wires up all handlers, middleware, and starts the Telegram bot.
 import asyncio
 import logging
 import os
-import threading
-from http.server import HTTPServer, BaseHTTPRequestHandler
 from dotenv import load_dotenv
 
 from telegram import Update
@@ -18,7 +16,7 @@ from telegram.ext import (
 )
 from telegram.request import HTTPXRequest
 
-from bot.config import BOT_TOKEN, LOG_LEVEL, LOG_FILE, HEALTH_CHECK_PORT
+from bot.config import BOT_TOKEN, LOG_LEVEL, LOG_FILE
 from bot.handlers import start, cam_handler, masker_handler, logs_handler, settings_handler
 from bot.database.session import get_conversation_state, SessionManager
 from bot.services.tunnel_service import CloudflareTunnelService
@@ -243,47 +241,9 @@ def build_application() -> Application:
     return app
 
 
-# ── Health Check Server (Render / Cloud Platforms) ────────────
-
-class _HealthHandler(BaseHTTPRequestHandler):
-    """Minimal HTTP handler that returns 200 OK for any GET request."""
-
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-Type", "text/plain")
-        self.end_headers()
-        self.wfile.write(b"OK")
-
-    def log_message(self, format, *args):
-        # Suppress default access logs to keep output clean
-        pass
-
-
-def _start_health_server():
-    """
-    Start a lightweight HTTP server on Render's PORT so health checks pass.
-
-    Render (and similar platforms) periodically probe the service's port.
-    If nothing responds, the instance is marked unhealthy and killed.
-    This tiny server ensures the instance stays alive while the real work
-    (Telegram polling + Flask camera server) runs in parallel.
-    """
-    try:
-        server = HTTPServer(("0.0.0.0", HEALTH_CHECK_PORT), _HealthHandler)
-        thread = threading.Thread(target=server.serve_forever, daemon=True)
-        thread.start()
-        logger.info(f"Health-check server listening on port {HEALTH_CHECK_PORT}")
-    except Exception as e:
-        logger.error(f"Failed to start health-check server: {e}")
-
-
 def run():
     """Build and run the bot with polling."""
     app = build_application()
-
-    # Start the health-check server BEFORE polling so Render sees a
-    # listening port immediately and doesn't kill the instance.
-    _start_health_server()
 
     logger.info("=" * 50)
     logger.info("  CyberAI Bot Starting...")
