@@ -241,8 +241,15 @@ def build_application() -> Application:
     return app
 
 
+PORT = int(os.environ.get("PORT", 5000))
+
+
 def run():
-    """Build and run the bot with polling."""
+    """
+    Build and run the bot.
+    - If RENDER_EXTERNAL_URL is set → webhook mode on 0.0.0.0:PORT  (for Render)
+    - Otherwise → polling mode (for local development)
+    """
     app = build_application()
 
     logger.info("=" * 50)
@@ -251,12 +258,33 @@ def run():
     logger.info(f"  Bot: {bot_username}")
     logger.info("=" * 50)
 
-    app.run_polling(
-        drop_pending_updates=True,
-        timeout=30,
-        bootstrap_retries=5,
-        allowed_updates=Update.ALL_TYPES,
-    )
+    render_url = os.environ.get("RENDER_EXTERNAL_URL")
+
+    if render_url:
+        # ── Webhook mode (Render / production) ──
+        webhook_url = f"{render_url}/{os.getenv('BOT_TOKEN')}"
+        logger.info(f"  Mode: Webhook")
+        logger.info(f"  Listening on 0.0.0.0:{PORT}")
+        logger.info(f"  Webhook URL: {render_url}/***")
+
+        app.run_webhook(
+            listen="0.0.0.0",
+            port=PORT,
+            url_path=os.getenv("BOT_TOKEN"),
+            webhook_url=webhook_url,
+            drop_pending_updates=True,
+            allowed_updates=Update.ALL_TYPES,
+        )
+    else:
+        # ── Polling mode (local development) ──
+        logger.info("  Mode: Polling (local)")
+
+        app.run_polling(
+            drop_pending_updates=True,
+            timeout=30,
+            bootstrap_retries=5,
+            allowed_updates=Update.ALL_TYPES,
+        )
 
 
 if __name__ == "__main__":
