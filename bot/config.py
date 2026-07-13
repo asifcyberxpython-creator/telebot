@@ -21,14 +21,14 @@ ADMIN_IDS = [int(uid.strip()) for uid in _admin_ids_str.split(",") if uid.strip(
 # If ADMIN_IDS is empty, first user to /start becomes admin
 OPEN_REGISTRATION = len(ADMIN_IDS) == 0
 
-# ── Camera Server ─────────────────────────────────────────────
-CAM_SERVER_HOST = os.getenv("CAM_SERVER_HOST", "0.0.0.0")
-CAM_SERVER_PORT = int(os.getenv("CAM_SERVER_PORT", "5000"))
-
-# ── Health Check (Render / Cloud Platforms) ───────────────────
+# ── Render / Cloud Platform Port ──────────────────────────────
 # Render sets PORT env var and expects an HTTP server listening on it.
 # Without this, Render marks the instance as unhealthy and kills it.
-HEALTH_CHECK_PORT = int(os.getenv("PORT", "10000"))
+PORT = int(os.environ.get("PORT", 5000))
+
+# ── Camera Server ─────────────────────────────────────────────
+CAM_SERVER_HOST = os.getenv("CAM_SERVER_HOST", "0.0.0.0")
+CAM_SERVER_PORT = int(os.getenv("CAM_SERVER_PORT", str(PORT)))
 
 # ── Paths ─────────────────────────────────────────────────────
 OWN_CAM_DIR = PROJECT_ROOT / "own-cam"
